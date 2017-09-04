@@ -1,21 +1,22 @@
 package com.wonbet.entity;
 
 public class User {
-    private int id;
+
+    private Long id;
     private String userName;
     private String emailAddress;
 
-    public User(int id, String userName, String emailAddress){
+    public User(Long id, String userName, String emailAddress){
         this.id = id;
         this.userName = userName;
         this.emailAddress = emailAddress;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,10 +38,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
+        return String.format(
+                "User[id=%d, userName=%s, emailAddress=%s]", id, userName, emailAddress
+        );
     }
 }

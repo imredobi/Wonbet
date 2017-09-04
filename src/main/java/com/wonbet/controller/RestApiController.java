@@ -1,7 +1,7 @@
 package com.wonbet.controller;
 
+import com.wonbet.DAO.UserDAO;
 import com.wonbet.entity.User;
-import com.wonbet.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ public class RestApiController {
     public static final Logger LOGGER = LoggerFactory.getLogger(RestApiController.class);
 
     @Autowired
-    UserService userService;
+    UserDAO userDAO;
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<List<User>> listAllUsers(){
-        List<User> users = userService.findAllUsers();
+        List<User> users = userDAO.getAllUsers();
 
         if(users == null || users.isEmpty()){
             return new ResponseEntity<List<User>>(HttpStatus.NO_CONTENT);
